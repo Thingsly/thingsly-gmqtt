@@ -1,0 +1,29 @@
+db:
+  redis:
+    # Redis connection string
+    conn: 127.0.0.1:6379
+    # Redis database index
+    db_num: 1
+    # Redis password
+    password: "redis"
+  psql:
+#    psqladdr: "127.0.0.1"
+#    psqladdr: "47.251.45.205"
+#    psqlport: 5432
+#    psqldb: irrigate
+#    psqluser: postgres
+#    psqlpass: postgresThingsly2025
+
+    # Community edition
+#    psqladdr: "47.92.253.145"
+    psqladdr: "127.0.0.1"
+    psqlport: 5432 # Default is 5432
+    psqldb: Thingsly
+    psqluser: postgres
+    psqlpass: postgresThingsly
+
+mqtt:
+  # Root user password
+  broker: localhost:1883
+  password: "root"
+  plugin_password: "plugin"
