@@ -1,11 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM --platform=$BUILDPLATFORM golang:alpine AS builder
+FROM golang:alpine AS builder
 WORKDIR $GOPATH/src/app
 ADD . ./
 ENV GO111MODULE=on
 WORKDIR $GOPATH/src/app/cmd/gmqttd
-ARG TARGETPLATFORM
-ARG BUILDPLATFORM
 RUN go build
 
 FROM alpine:latest
