@@ -11,14 +11,14 @@ import (
 
 // List of allowed topics for subscription
 var AllowSubscribeTopicList = [2]string{
-	"+/devices/${username}/sys/commands/+",       // Command issuance (Huawei Cloud IoT Platform specification)
-	"+/devices/${username}/sys/properties/set/+", // Property setting (Huawei Cloud IoT Platform specification)
+	"+/devices/${username}/sys/commands/+",       // Command issuance 
+	"+/devices/${username}/sys/properties/set/+", // Property setting 
 }
 
 // Topic conversion rules
 var TopicConvertMap = map[string]string{
-	"+/devices/${username}/sys/properties/report": "device/attributes", // Property reporting (Huawei Cloud IoT Platform specification)
-	"+/devices/${username}/sys/events/up":         "device/event",      // Event reporting (Huawei Cloud IoT Platform specification)
+	"+/devices/${username}/sys/properties/report": "device/attributes", // Property reporting 
+	"+/devices/${username}/sys/events/up":         "device/event",      // Event reporting
 }
 
 // Callback function when subscribing to a topic, used to check if the subscription is allowed
@@ -73,7 +73,7 @@ func RootMessageForwardWrapper(topic string, payload []byte, flag bool) error {
 	}
 	var username string
 	var topicConvertMap = map[string]string{
-		"device/attributes/+": "mindjob/devices/${username}/sys/properties/set/request_id=", // Command issuance (Huawei Cloud IoT Platform specification)
+		"device/attributes/+": "mindjob/devices/${username}/sys/properties/set/request_id=", // Command issuance
 	}
 	// If the topic is one of the keys in topicConvertMap, convert it to the corresponding value
 	for k, v := range topicConvertMap {

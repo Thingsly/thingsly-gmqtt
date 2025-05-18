@@ -165,7 +165,7 @@ func (t *Thingsly) OnMsgArrivedWrapper(pre server.OnMsgArrived) server.OnMsgArri
 			return errors.New("permission denied")
 		}
 
-		// Allow topics ending with "/up" directly [Mindjoy-MW]
+		// Allow topics ending with "/up" directly
 		if the_pub[len(the_pub)-3:] == "/up" {
 			return nil
 		}
